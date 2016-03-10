@@ -10,10 +10,10 @@ const reduxRouterMiddleware = routerMiddleware(hashHistory);
 
 export default function configureStore(initialState) {
   const createPersistentStore = compose(
+    install(),
     applyMiddleware(
       reduxRouterMiddleware
     ),
-    install(),
     DevTools.instrument()
   )(createStore);
 
